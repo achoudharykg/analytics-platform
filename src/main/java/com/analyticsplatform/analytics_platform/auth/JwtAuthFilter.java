@@ -44,8 +44,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 // The ROLE_ prefix is a Spring Security convention.
                 // If you check hasRole("ADMIN"), Spring internally looks for ROLE_ADMIN in the authorities list.
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                        user.getId(),
                         user.getEmail(),
-                        null,
                         List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole()))
                 );
 
