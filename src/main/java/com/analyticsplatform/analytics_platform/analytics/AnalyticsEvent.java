@@ -3,6 +3,8 @@ package com.analyticsplatform.analytics_platform.analytics;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 
@@ -29,6 +31,7 @@ public class AnalyticsEvent {
     private String environment;
 
     @Column(columnDefinition = "jsonb")
+    @JdbcTypeCode(SqlTypes.JSON)
     private String metaData;
 
     @Column(nullable = false)
